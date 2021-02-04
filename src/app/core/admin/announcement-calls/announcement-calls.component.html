@@ -1,0 +1,1020 @@
+<div class="header pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-dark d-inline-block mb-0"> Announcement Calls </h6>
+
+                    <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> <i class="fas fa-certificate text-dark"> </i> </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="javascript:void(0)" class="text-dark"> Pre-Award </a>
+                              </li>
+                            <!-- <li aria-current="page" class="breadcrumb-item active">
+                                Reporting
+                            </li> -->
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-6">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="h3 mb-0"> No. of Grant Calls per Month </h5>
+				</div>
+				<div class="card-body">
+					<div class="chart">
+						<div class="amchart" id="chartannouncementcallsbar1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-6">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="h3 mb-0"> No. of Grant Calls in February 2021 </h5>
+				</div>
+				<div class="card-body">
+					<div class="chart">
+						<div class="amchart" id="chartannouncementcallspie1"></div>
+					</div>
+				</div>
+			</div>
+        </div>
+        
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <h6 class="h2 text-dark d-inline-block mb-0"> Find Calls </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class=" col-xl-3">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="example4cols2Input">
+                                    Type of Grant
+                                </label>
+                    
+                                <input
+                                  class=" form-control"
+                                  id="example4cols2Input"
+                                  placeholder="Type here..."
+                                  type="text"
+                                />
+                            </div>
+                        </div>
+                        <div class=" col-xl-3">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="example4cols2Input">
+                                    Research Niche Area
+                                </label>
+                    
+                                <input
+                                  class=" form-control"
+                                  id="example4cols2Input"
+                                  placeholder="Type here..."
+                                  type="text"
+                                />
+                            </div>
+                        </div>
+                        <div class=" col-xl-3">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="example4cols2Input">
+                                    Submission Data
+                                </label>
+
+                                <input
+                                  class=" form-control"
+                                  id="example4cols2Input"
+                                  placeholder="Type here..."
+                                  type="text"
+                                />
+                            </div>
+                        </div>
+                        <div class=" col-xl-3">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="example4cols2Input">
+                                  Project Duration
+                                </label>
+                    
+                                <input
+                                  class=" form-control"
+                                  id="example4cols2Input"
+                                  placeholder="Type here..."
+                                  type="text"
+                                />
+                            </div>
+                        </div>
+                  
+                        <div class="col-xl-12 text-right">
+                            <button class="btn btn-default" style="width: 10%;" type="button"> Find </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class=" card-header">
+                        <div class="row">
+                            <div class="col-6">  
+                                <h6 class="h2 text-dark d-inline-block mt-2"> Call List </h6>
+                            </div> 
+                            <div class="col-6 text-right">
+                                <button class="btn btn-default" type="button" (click)="lgModal.show()"> New Account </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dataTables_wrapper py-4">		  
+                        <ngx-datatable
+                          class="bootstrap selection-cell"
+                          [columnMode]="'force'"
+                          [headerHeight]="50"
+                          [footerHeight]="50"
+                          [rowHeight]="'auto'"
+                          [limit]="entries != -1 ? entries : undefined"
+                          [rows]="temp"
+                          
+                        >
+                            <!-- <ngx-datatable-column name="No">
+                              <ng-template
+                              let-rowIndex="rowIndex"
+                              let-row="row"
+                              ngx-datatable-cell-template
+                              >
+                              <strong>{{ rowIndex + 1 }}</strong>
+                              </ng-template>
+                            </ngx-datatable-column> -->
+                            <ngx-datatable-column name="Type of Grant" >
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.typeGrant}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Research Niche Area" >
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.nicheArea}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Submission Date" >
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.submissionDate}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Project Duration" >
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.researchDuration}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Announcement Status">
+                                <!-- <ng-template ngx-datatable-header-template>
+                                  <span> Announcement Status </span>
+                                </ng-template> -->
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                  <span
+                                    *ngIf="row.status == 'publish'"
+                                    class="badge badge-pill badge-success"
+                                    >Published</span
+                                  >
+                                  <span
+                                    *ngIf="row.status == 'tobepublish'"
+                                    class="badge badge-pill badge-warning"
+                                    >To be published</span
+                                  >
+                                  <span
+                                    *ngIf="row.status == 'cancelled'"
+                                    class="badge badge-pill badge-danger"
+                                    >Cancelled</span
+                                  >                 
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Action">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    <button class=" btn btn-icon btn-default btn-sm" type="button" title="View/Modify" (click)="lgModal.show()">
+                                        <span class=" btn-inner--icon"> <i class=" far fa-eye"> </i> </span>
+                                    </button>
+                                    <button class=" btn btn-icon btn-danger btn-sm" type="button" title="Delete" (click)="delete()">
+                                        <span class=" btn-inner--icon"> <i class=" fas fa-trash"> </i> </span>
+                                    </button>
+                                    <!-- <button class=" btn btn-icon btn-default btn-sm" type="button" title="Print">
+                                        <span class=" btn-inner--icon"> <i class=" fas fa-print"> </i> </span>
+                                    </button> -->
+                                </ng-template>
+                            </ngx-datatable-column>
+                        </ngx-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-xl-12">
+            <div class=" card card-calendar">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">  
+                            <h6 class="h2 text-dark d-inline-block mt-2"> Announcement Timeline </h6>
+                        </div> 
+                        <div class="col-6 text-right">
+                            <button class="btn btn-default" type="button" (click)="openModal(modalAdd)"> New Entry </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class=" card-header"><h5 class=" h3 mb-0">Announcement Timeline</h5></div> -->
+                    
+                <div class=" card-body p-0">
+                    <div class=" calendar" data-toggle="calendar" id="calendar"></div>
+                </div>
+            </div>
+      
+            <div
+              aria-hidden="true"
+              aria-labelledby="new-event-label"
+              class=" modal fade"
+              id="new-event"
+              role="dialog"
+              tabindex="-1"
+            >
+              <div
+                class=" modal-dialog modal-dialog-centered modal-secondary"
+                role="document"
+              >
+                <ng-template #modalAdd>
+                    <div class="modal-header">
+                        <h6 class=" modal-title" id="modal-title-default">
+                            Grant Announcement
+                        </h6>
+
+                        <button
+                            aria-label="Close"
+                            class=" close"
+                            data-dismiss="modal"
+                            type="button"
+                            (click)="addModal.hide()"
+                        >
+                            <span aria-hidden="true"> × </span>
+                        </button>
+                    </div>
+                    <div class=" modal-body">
+                        <form class=" new-event--form">
+                        <div class=" form-group">
+                            <label class=" form-control-label"> Date of Announcement </label>
+                            
+                            <input
+                                class=" form-control form-control-alternative new-event--title"
+                                id="new-event--title"
+                                type="date"
+                                (change)="getNewEventTitle($event)"
+                                value="2021-01-01"
+                            />
+                        </div>
+                        <div class=" form-group">
+                            <label class=" form-control-label"> Expiry Date </label>
+        
+                            <input
+                                class=" form-control form-control-alternative new-event--title"
+                                id="new-event--title"
+                                type="date"
+                                (change)="getNewEventTitle($event)"
+                                value="2021-01-01"
+                            />
+                        </div>
+                        <div class=" form-group">
+                            <label class=" form-control-label"> Title of Announcement </label>
+        
+                            <input
+                            class=" form-control form-control-alternative new-event--title"
+                            id="new-event--title"
+                            placeholder="Event Title"
+                            type="text"
+                            (change)="getNewEventTitle($event)"
+                            />
+                        </div>
+                        <div class=" form-group">
+                            <label class=" form-control-label"> Start </label>
+        
+                            <input
+                            class=" form-control form-control-alternative new-event--title"
+                            id="new-event--title"
+                            placeholder="Event Title"
+                            type="text"
+                            (change)="getNewEventTitle($event)"
+                            />
+                        </div>
+                        <div class=" form-group">
+                            <label class=" form-control-label"> Platform </label>
+        
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Platform" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-default" type="button" id="button-addon2"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" form-group">
+                            <label class=" form-control-label"> Message </label>
+        
+                            <input
+                            class=" form-control form-control-alternative new-event--title"
+                            id="new-event--title"
+                            placeholder="Event Title"
+                            type="text"
+                            (change)="getNewEventTitle($event)"
+                            />
+                        </div>
+                                
+                        <!-- <div class=" form-group mb-0">
+                            <label class=" form-control-label d-block mb-3">
+                            Status color
+                            </label>
+        
+                            <div
+                            class=" btn-group btn-group-toggle btn-group-colors event-tag"
+                            data-toggle="buttons"
+                            >
+                            <label
+                                class=" btn bg-info"
+                                [ngClass]="{ active: radios === 'bg-info' }"
+                            >
+                                <input
+                                autocomplete="off"
+                                checked="checked"
+                                name="event-tag"
+                                type="radio"
+                                value="bg-info"
+                                (click)="radios = 'bg-info'"
+                                />
+                            </label>
+        
+                            <label
+                                class=" btn bg-warning"
+                                [ngClass]="{ active: radios === 'bg-warning' }"
+                            >
+                                <input
+                                autocomplete="off"
+                                name="event-tag"
+                                type="radio"
+                                value="bg-warning"
+                                (click)="radios = 'bg-warning'"
+                                />
+                            </label>
+        
+                            <label
+                                class=" btn bg-danger"
+                                [ngClass]="{ active: radios === 'bg-danger' }"
+                            >
+                                <input
+                                autocomplete="off"
+                                name="event-tag"
+                                type="radio"
+                                value="bg-danger"
+                                (click)="radios = 'bg-danger'"
+                                />
+                            </label>
+        
+                            <label
+                                class=" btn bg-success"
+                                [ngClass]="{ active: radios === 'bg-success' }"
+                            >
+                                <input
+                                autocomplete="off"
+                                name="event-tag"
+                                type="radio"
+                                value="bg-success"
+                                (click)="radios = 'bg-success'"
+                                />
+                            </label>
+        
+                            <label
+                                class=" btn bg-default"
+                                [ngClass]="{ active: radios === 'bg-default' }"
+                            >
+                                <input
+                                autocomplete="off"
+                                name="event-tag"
+                                type="radio"
+                                value="bg-default"
+                                (click)="radios = 'bg-default'"
+                                />
+                            </label>
+        
+                            <label
+                                class=" btn bg-primary"
+                                [ngClass]="{ active: radios === 'bg-primary' }"
+                            >
+                                <input
+                                autocomplete="off"
+                                name="event-tag"
+                                type="radio"
+                                value="bg-primary"
+                                (click)="radios = 'bg-primary'"
+                                />
+                            </label>
+                            </div>
+                        </div> -->
+        
+                        <input class=" new-event--start" type="hidden" />
+        
+                        <input class=" new-event--end" type="hidden" />
+                        </form>
+                    </div>
+        
+                    <div class=" modal-footer">
+                        <button
+                        class=" btn btn-success new-event--add"
+                        type="submit"
+                        (click)="addNewEvent()"
+                        >
+                        Add event
+                        </button>
+        
+                        <button
+                        (click)="addModal.hide()"
+                        class=" btn btn-link ml-auto"
+                        data-dismiss="modal"
+                        type="button"
+                        >
+                        Close
+                        </button>
+                    </div>
+                </ng-template>
+              </div>
+            </div>
+      
+            <div
+              aria-hidden="true"
+              aria-labelledby="edit-event-label"
+              class=" modal fade"
+              id="edit-event"
+              role="dialog"
+              tabindex="-1"
+            >
+              <div
+                class=" modal-dialog modal-dialog-centered modal-secondary"
+                role="document"
+              >
+                <ng-template #modalEdit>
+                  <div class=" modal-body">
+                    <form class=" edit-event--form">
+                      <div class=" form-group">
+                        <label class=" form-control-label"> Event title </label>
+      
+                        <input
+                          class=" form-control form-control-alternative edit-event--title"
+                          placeholder="Event Title"
+                          type="text"
+                          value="{{ eventTitle }}"
+                          (change)="getNewEventTitle($event)"
+                        />
+                      </div>
+      
+                      <div class=" form-group">
+                        <label class=" form-control-label d-block mb-3">
+                          Status color
+                        </label>
+      
+                        <div
+                          class=" btn-group btn-group-toggle btn-group-colors event-tag mb-0"
+                          data-toggle="buttons"
+                        >
+                          <label
+                            class=" btn bg-info"
+                            [ngClass]="{ active: radios === 'bg-info' }"
+                          >
+                            <input
+                              autocomplete="off"
+                              checked="checked"
+                              name="event-tag"
+                              type="radio"
+                              value="bg-info"
+                              (click)="radios = 'bg-info'"
+                            />
+                          </label>
+      
+                          <label
+                            class=" btn bg-warning"
+                            [ngClass]="{ active: radios === 'bg-warning' }"
+                          >
+                            <input
+                              autocomplete="off"
+                              name="event-tag"
+                              type="radio"
+                              value="bg-warning"
+                              (click)="radios = 'bg-warning'"
+                            />
+                          </label>
+      
+                          <label
+                            class=" btn bg-danger"
+                            [ngClass]="{ active: radios === 'bg-danger' }"
+                          >
+                            <input
+                              autocomplete="off"
+                              name="event-tag"
+                              type="radio"
+                              value="bg-danger"
+                              (click)="radios = 'bg-danger'"
+                            />
+                          </label>
+      
+                          <label
+                            class=" btn bg-success"
+                            [ngClass]="{ active: radios === 'bg-success' }"
+                          >
+                            <input
+                              autocomplete="off"
+                              name="event-tag"
+                              type="radio"
+                              value="bg-success"
+                              (click)="radios = 'bg-success'"
+                            />
+                          </label>
+      
+                          <label
+                            class=" btn bg-default"
+                            [ngClass]="{ active: radios === 'bg-default' }"
+                          >
+                            <input
+                              autocomplete="off"
+                              name="event-tag"
+                              type="radio"
+                              value="bg-default"
+                              (click)="radios = 'bg-default'"
+                            />
+                          </label>
+      
+                          <label
+                            class=" btn bg-primary"
+                            [ngClass]="{ active: radios === 'bg-primary' }"
+                          >
+                            <input
+                              autocomplete="off"
+                              name="event-tag"
+                              type="radio"
+                              value="bg-primary"
+                              (click)="radios = 'bg-primary'"
+                            />
+                          </label>
+                        </div>
+                      </div>
+      
+                      <div class=" form-group">
+                        <label class=" form-control-label"> Description </label>
+      
+                        <textarea
+                          class=" form-control form-control-alternative edit-event--description textarea-autosize"
+                          placeholder="Event Desctiption"
+                          value="{{ eventDescription }}"
+                          (change)="getNewEventDescription($event)"
+                        ></textarea>
+      
+                        <i class=" form-group--bar"> </i>
+                      </div>
+      
+                      <input class=" edit-event--id" type="hidden" />
+                    </form>
+                  </div>
+      
+                  <div class=" modal-footer">
+                    <button
+                      class=" btn btn-primary"
+                      data-calendar="update"
+                      (click)="updateEvent()"
+                    >
+                      Update
+                    </button>
+      
+                    <button
+                      class=" btn btn-danger"
+                      data-calendar="delete"
+                      (click)="deleteEventSweetAlert()"
+                    >
+                      Delete
+                    </button>
+      
+                    <button
+                      class=" btn btn-link ml-auto"
+                      data-dismiss="modal"
+                      (click)="editModal.hide()"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-xl-12">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="h3 mb-0"> No. of Clicks on Published Announcement </h5>
+				</div>
+				<div class="card-body">
+					<div class="chart">
+						<div class="amchart" id="chartannouncecallsbar2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left"> View/Edit </h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <tabset #staticTabs>
+                                <tab heading="General Inquiry"> 
+                                    <div class="row">
+                                        <br>
+                                        <div class="col-xl-12 mt-4">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Type of Grant
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Eligibility
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Title
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Maximum Funding (RM)
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <button 
+                                            class=" btn btn-default" 
+                                            type="button" 
+                                            class="btn btn-warning"
+                                            (click)="lgModal.hide()"
+                                        >
+                                            Back
+                                        </button>
+                                        <button 
+                                            class=" btn btn-default text-right" 
+                                            type="button" 
+                                            class="btn btn-success"
+                                            (click)="selectTab(1)"
+                                        >
+                                            Next
+                                        </button>
+                                    </div>
+                                </tab>
+                                <tab heading="Background">
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xl-12 mt-4">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Research Niche Area
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Background Research
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Project Collaborator
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Contact Details
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Upload OtherDocument
+                                                </label>
+                                    
+                                                <input
+                                                    class=" custom-file-input"
+                                                    id="customFileLang"
+                                                    lang="en"
+                                                    type="file"
+                                                />
+
+                                                <label class=" custom-file-label" for="customFileLang">
+                                                    Select file
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button 
+                                            class=" btn btn-default" 
+                                            type="button" 
+                                            class="btn btn-warning"
+                                            (click)="selectTab(1)"
+                                        >
+                                            Back
+                                        </button>
+                                        <button 
+                                            class=" btn btn-default text-right" 
+                                            type="button" 
+                                            class="btn btn-success"
+                                            (click)="selectTab(2)"
+                                        >
+                                            Next
+                                    </button>
+                                </tab>
+                                <tab heading="Schedule">
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xl-12 mt-4">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Submission Dateline (UM)
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Project Duration
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Submission Dateline (Funder)
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Select Technician
+                                                </label>
+                                    
+                                                <select class=" form-control" id="exampleFormControlSelect3">
+                                                    <option selected=""> Please Pick </option>
+                                                    <option> John </option>
+                                  
+                                                    <option> Layla </option>
+                                  
+                                                    <option> Lancelot </option>
+                                  
+                                                    <option> Aldous </option>
+                                  
+                                                    <option> Alucard </option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label" for="example4cols2Input">
+                                                    Estimated Downtime (Hour)
+                                                </label>
+                                    
+                                                <input
+                                                  class=" form-control"
+                                                  id="example4cols2Input"
+                                                  placeholder="Type here..."
+                                                  type="text"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button 
+                                            class=" btn btn-default" 
+                                            type="button" 
+                                            class="btn btn-warning"
+                                            (click)="selectTab(2)"
+                                        >
+                                            Back
+                                        </button>
+                                        <button 
+                                            class=" btn btn-default text-right" 
+                                            type="button" 
+                                            class="btn btn-success"
+                                            (click)="selectTab(3)"
+                                        >
+                                            Next
+                                    </button>
+                                </tab>
+                                <tab heading="Review">
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xl-12" style="margin-top: 300px;">
+                                            <div class=" form-group">
+                                                <label class=" form-control-label"> Auto Generated Serial No. </label>
+                            
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" placeholder="Auto Generated Serial No." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    <div class="input-group-append">
+                                                      <button class="btn btn-outline-default" type="button" id="button-addon2"><i class="fas fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button 
+                                            class=" btn btn-default" 
+                                            type="button" 
+                                            class="btn btn-warning"
+                                            (click)="selectTab(3)"
+                                        >
+                                            Back
+                                        </button>
+                                        <button 
+                                            class=" btn btn-default text-right" 
+                                            type="button" 
+                                            class="btn btn-success"
+                                            (click)="successSwal()"
+                                        >
+                                            Submit
+                                    </button>
+                                </tab>
+                                <!-- <tab heading="Schedule">
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xl-12 mt-4">
+                                            <div class=" form-group">
+                                                <textarea
+                                                    class=" form-control"
+                                                    id="exampleFormControlTextarea3"
+                                                    rows="9"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                <div class="input-group-append">
+                                                  <button class="btn btn-outline-primary" type="button" id="button-addon2">Button</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab> -->
+                              </tabset>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button 
+        class=" btn btn-default" 
+        type="button" 
+        class="btn btn-success"
+        (click)="successSwal()"
+        >
+            Submit
+        </button>
+        <button 
+            class=" btn btn-default" 
+            type="button" 
+            class="btn btn-warning"
+            (click)="confirm()"
+        >
+            Reject
+        </button>
+        <button 
+            class=" btn btn-default" 
+            type="button" 
+            class="btn btn-danger"
+            (click)="confirm()"
+        >
+            Freeze Account
+        </button> -->
+        <button
+            class=" btn btn-link ml-auto"
+            data-dismiss="modal"
+            type="button"
+            (click)="lgModal.hide()"
+        >
+            Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
